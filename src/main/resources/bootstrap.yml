@@ -3,6 +3,9 @@ spring:
     name: users-api
   main:
     banner-mode: off
+  jpa:
+    hibernate:
+      default_schema: TB_
 
 jwt:
   secret: users-api
