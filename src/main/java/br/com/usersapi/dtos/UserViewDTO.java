@@ -1,5 +1,6 @@
 package br.com.usersapi.dtos;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +18,7 @@ public class UserViewDTO {
     private String name;
     private String key;
     private String email;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

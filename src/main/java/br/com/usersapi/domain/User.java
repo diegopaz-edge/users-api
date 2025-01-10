@@ -11,7 +11,7 @@ import java.util.UUID;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "USER")
+@Table(name = "TB_USER")
 public class User extends AbstractEntity {
 
     @Id
