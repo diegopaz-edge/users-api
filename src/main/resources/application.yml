@@ -20,7 +20,6 @@ spring:
     date-format: yyyy-MM-dd HH:mm
     time-zone: UTC
 
-
 logging:
   level:
     sun:
@@ -30,3 +29,11 @@ server:
   port: 8080
   servlet:
     context-path: /users-api
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+  data-rest:
+    enabled: true
