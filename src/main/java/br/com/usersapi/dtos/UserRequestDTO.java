@@ -15,7 +15,6 @@ public class UserRequestDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = -8953196753735778746L;
 
-    private String id;
     @NotEmpty(message = "Required Field")
     private String name;
     @NotEmpty(message = "Required Field")

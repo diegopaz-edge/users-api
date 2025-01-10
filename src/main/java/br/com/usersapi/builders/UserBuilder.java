@@ -9,7 +9,6 @@ public class UserBuilder {
 
     public static User build(UserRequestDTO requestDTO) {
         return User.builder()
-                .id(ConvertUtil.convertStringToUUID(requestDTO.getId()))
                 .name(requestDTO.getName())
                 .key(requestDTO.getKey())
                 .email(requestDTO.getEmail())

@@ -40,21 +40,20 @@ public class UserResource {
     @PostMapping
     public ResponseEntity<UserViewDTO> save(@Valid @RequestBody UserRequestDTO requestDTO) {
         UserViewDTO userDTO = service.save(requestDTO);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(requestDTO.getId()).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(userDTO.getId()).toUri();
         return ResponseEntity.created(uri).body(userDTO);
     }
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Void> update(@RequestBody UserRequestDTO requestDTO, @PathVariable String id) {
-        requestDTO.setId(id);
-        service.save(requestDTO);
-        return ResponseEntity.ok().build();
+        service.update(id, requestDTO);
+        return ResponseEntity.accepted().build();
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
         service.delete(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping(value = "/page")

@@ -6,6 +6,7 @@ import br.com.usersapi.dtos.UserRequestDTO;
 import br.com.usersapi.dtos.UserViewDTO;
 import br.com.usersapi.repositories.UserRepository;
 import br.com.usersapi.services.exceptions.DataIntegrityException;
+import br.com.usersapi.utilities.ConvertUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import static br.com.usersapi.utilities.ConvertUtil.convertStringToUUID;
@@ -63,6 +65,14 @@ public class UserService {
         log.info("User has been successfully added");
         return UserBuilder.build(userSaved);
     }
+
+    public void update(String id, UserRequestDTO requestDTO) {
+        User user = UserBuilder.build(requestDTO);
+        user.setId(ConvertUtil.convertStringToUUID(id));
+        User userSaved = repository.save(user);
+        log.info("User has been successfully updated");
+    }
+
 
     public void delete(String id) {
         try {
