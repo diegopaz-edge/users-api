@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: users-api
-  main:
-    banner-mode: off
-
-jwt:
-  secret: users-api
-  expiration: 150000

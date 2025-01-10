@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: users-api
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:postgresql://localhost:5432/edge_user
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm
+    time-zone: UTC
+
+
+logging:
+  level:
+    sun:
+      rmi: OFF
+
+server:
+  port: 8080
+  servlet:
+    context-path: /users-api
